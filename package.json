@@ -1,0 +1,29 @@
+{
+  "name": "le-livre-magique",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "next": "latest",
+    "pdfjs-dist": "^4.10.38",
+    "qrcode": "^1.5.4",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
