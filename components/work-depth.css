@@ -82,6 +82,8 @@
   border-radius: 18px;
   background: var(--tone, #141210);
   isolation: isolate;
+  clip-path: inset(0 round 18px);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .depth-banner > * {

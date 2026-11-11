@@ -93,10 +93,11 @@ export function LessonScreen({ slug }: { slug: string }) {
       <div className="grid gap-4">
         <header className="grid gap-1">
           {part && (
-            <Link href={`/livre/${part.code.toLowerCase()}`} className="text-sm no-underline" style={{ color: part.couleur }}>
-              {part.titre}
+            <Link href={`/livre/${part.code.toLowerCase()}`} className="btn btn-ghost mb-2 w-fit">
+              {arrow(true)} {story ? t.backStory : named?.titre}
             </Link>
           )}
+          {part && named && <p className="text-sm font-semibold" style={{ color: part.couleur }}>{named.titre}</p>}
           <p className="font-mono text-sm text-[var(--blue)]">{chapter} · {lesson.code} · page {lesson.page}</p>
           <h1 className="font-display text-4xl text-balance md:text-5xl">{lessonName(lesson.titre)}</h1>
           <p className="text-sm text-[var(--ink-soft)]">
@@ -205,7 +206,11 @@ export function LessonScreen({ slug }: { slug: string }) {
         ) : null)}
 
         <nav className="grid grid-cols-2 gap-2">
-          {prev ? <Link className="btn btn-soft" href={`/v/${prev.slug}?s=code`}>{arrow(true)} {names.one} {index}</Link> : <span />}
+          {prev ? (
+            <Link className="btn btn-soft" href={`/v/${prev.slug}?s=code`}>{arrow(true)} {names.one} {index}</Link>
+          ) : part ? (
+            <Link className="btn btn-soft" href={`/livre/${part.code.toLowerCase()}`}>{arrow(true)} {story ? t.backStory : named?.titre}</Link>
+          ) : <span />}
           {next ? (
             <Link className="btn btn-soft" href={`/v/${next.slug}?s=code`}>{names.one} {index + 2} {arrow(false)}</Link>
           ) : part ? (
