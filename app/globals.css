@@ -161,8 +161,6 @@ input[type="range"] { width: 100%; accent-color: var(--blue-fill); }
   font-size: 12px;
 }
 
-html.enter-once .app-chrome { animation: soft-fade 0.4s ease both; }
-
 .reveal { opacity: 1; transform: none; }
 
 .nav-link { position: relative; }
@@ -455,10 +453,6 @@ html[dir="rtl"] .teacher-badge { padding: 6px 6px 6px 18px; transform: translate
 .part-glow { display: none; }
 
 .boot { min-height: 40vh; }
-
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-}
 
 /* Administration */
 .admin-app { min-height: 100dvh; background: var(--paper); }

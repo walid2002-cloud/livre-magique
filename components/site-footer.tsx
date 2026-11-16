@@ -18,8 +18,7 @@ export function SiteFooter() {
   }, []);
 
   function top() {
-    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+    window.scrollTo({ top: 0 });
     document.getElementById("contenu")?.focus({ preventScroll: true });
   }
 

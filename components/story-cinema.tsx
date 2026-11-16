@@ -65,13 +65,8 @@ async function findVideo(base: string) {
 
 export function useStoryIntro(code: string | null) {
   const [play, setPlay] = useState(false);
-  useLayoutEffect(() => {
-    if (!code || !storyScene(code)) return;
-    if (!sessionStorage.getItem(`lm-intro-${code}`)) setPlay(true);
-  }, [code]);
 
   function close() {
-    if (code) sessionStorage.setItem(`lm-intro-${code}`, "1");
     setPlay(false);
     document.getElementById("contenu")?.focus();
   }

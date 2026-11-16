@@ -7,7 +7,7 @@ import { Player } from "./player";
 import { DocReader } from "./doc-reader";
 import { hasFullBook, isStory } from "@/lib/access";
 import { StoryCinema, storyScene, useStoryIntro, type StoryCode } from "./story-cinema";
-import { DepthBanner, DepthBook, useDepthReveal } from "./work-depth";
+import { DepthBanner, DepthBook } from "./work-depth";
 import { site } from "@/lib/config";
 import { getFile } from "@/lib/files";
 import { watermarkName } from "@/lib/format";
@@ -44,7 +44,6 @@ export function PartScreen({ code }: { code: string }) {
   const part = parts.find((item) => item.code.toLowerCase() === code.toLowerCase());
   const scene = part && isStory(part.code) ? storyScene(part.code) : null;
   const intro = useStoryIntro(scene ? part!.code : null);
-  const depth = useDepthReveal<HTMLOListElement>();
   if (!part) {
     return (
       <div className="grid gap-3">
@@ -94,7 +93,7 @@ export function PartScreen({ code }: { code: string }) {
         </div>
       )}
       {story && lessons[0] && <StoryDesk host={lessons[0]} color={part.couleur} title={named.titre} />}
-      <ol ref={depth.ref} className="depth-list grid gap-2">
+      <ol className="grid gap-2">
         {lessons.map((item, index) => {
           const vue = seen.has(item.id);
           const soon = item.statut === "a_tourner";
